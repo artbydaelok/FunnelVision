@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8acbbf72ce0624f45a62354affa0db9c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Foxbot
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 97f2629126b710c4091ecc0229c0c99c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
