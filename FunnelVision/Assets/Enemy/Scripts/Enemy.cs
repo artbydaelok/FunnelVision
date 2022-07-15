@@ -10,13 +10,10 @@ public class Enemy : MonoBehaviour
     public float interval;
     private float _interval;
 
-    public LayerMask layerMask;
-
-
     public Transform player;
     public float moveSpeed;
     public float maxSpeed = 0.5f;
-    private bool playerCaught = false;
+    protected bool playerCaught = false;
 
     private GameObject fov;
 
@@ -52,7 +49,7 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0) // if hp is at 0, destroy this enemy
         {
-            Destroy(gameObject);
+            Death();
         }
     }
 
@@ -62,6 +59,11 @@ public class Enemy : MonoBehaviour
         {
             moveCharacter(movement);
         }
+    }
+
+    protected virtual void Death()
+    {
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -113,7 +115,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    IEnumerator PlayerCaught()
+    protected virtual IEnumerator PlayerCaught()
     {
         playerCaught = true;
         GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
