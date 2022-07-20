@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemyPrefab;
+    private GameObject[] enemyPrefab;
     private float rx;
     private float ry;
-    private float offset = 7;
+    private float offset = 4;
 
     private float interval;
 
@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         interval = Random.Range(0.5f, 3f); // creates a random interval time between 2 and 5 seconds.
-        StartCoroutine(spawnEnemy(interval, enemyPrefab)); 
+        StartCoroutine(spawnEnemy(interval)); 
     }
 
     // Update is called once per frame
@@ -24,8 +24,13 @@ public class EnemySpawner : MonoBehaviour
     {
         
     }
+    private GameObject RandomEnemy()
+    {
+        return enemyPrefab[Random.Range(0, enemyPrefab.Length)];
+    }
+    
 
-    private IEnumerator spawnEnemy (float _interval, GameObject enemy)
+    private IEnumerator spawnEnemy (float _interval)
     {
         rx = Random.Range(-5f, 5f);
         rx += Mathf.Sign(rx)*offset;
@@ -33,11 +38,11 @@ public class EnemySpawner : MonoBehaviour
         ry = Random.Range(-5f, 5f);
         ry += Mathf.Sign(ry)*offset;
 
-        GameObject newEnemy = Instantiate(enemy, new Vector3(rx, ry, 0), Quaternion.identity);
+        Instantiate(RandomEnemy(), new Vector3(rx, ry, 0), Quaternion.identity);
 
         yield return new WaitForSeconds(_interval); // wait before next spawn
 
         _interval = Random.Range(0.5f, 3f); // creates random interval between 2 and 5 secs
-        StartCoroutine(spawnEnemy(_interval, enemy)); // pass the same values, will try a Random.Range later on
+        StartCoroutine(spawnEnemy(_interval)); // pass the same values, will try a Random.Range later on
     }
 }

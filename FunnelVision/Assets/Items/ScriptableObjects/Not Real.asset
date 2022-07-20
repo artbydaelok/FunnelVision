@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Not Real
   m_EditorClassIdentifier: 
   name: Not Real
-  description: Prevents damage once when this is in your inventory
+  description: Prevents damage once
   artwork: {fileID: 0}
+  prefab: {fileID: 0}

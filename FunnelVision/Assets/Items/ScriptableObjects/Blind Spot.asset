@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Blind Spot
   m_EditorClassIdentifier: 
   name: Blind Spot
-  description: Grow a second iris behind you that ends everything it sees
+  description: Grow a second iris behind you
   artwork: {fileID: 21300000, guid: bc6cea8475d896045a8ee8c9038b0867, type: 3}
   prefab: {fileID: 511759761742380403, guid: 4fdbfa3041abbfe4dad8780d5c8d2dca, type: 3}
